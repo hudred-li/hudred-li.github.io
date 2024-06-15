@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="generator" content="mkdocs-1.6.0, mkdocs-terminal-4.4.0">
+     
+     
+    <link rel="icon" type="image/png" sizes="192x192" href="../../img/android-chrome-192x192.png" />
+<link rel="icon" type="image/png" sizes="512x512" href="../../img/android-chrome-512x512.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="../../img/apple-touch-icon.png" />
+<link rel="shortcut icon" type="image/png" sizes="48x48" href="../../img/favicon.ico" />
+<link rel="icon" type="image/png" sizes="16x16" href="../../img/favicon-16x16.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="../../img/favicon-32x32.png" />
+
+
+    
+ 
+<title>2024 06 15 Construction of a static blog system - hudred-li</title>
+
+
+<link href="../../css/fontawesome/css/fontawesome.min.css" rel="stylesheet">
+<link href="../../css/fontawesome/css/solid.min.css" rel="stylesheet">
+<link href="../../css/normalize.css" rel="stylesheet">
+<link href="../../css/terminal.css" rel="stylesheet">
+<link href="../../css/theme.css" rel="stylesheet">
+<link href="../../css/theme.tile_grid.css" rel="stylesheet">
+<link href="../../css/theme.footer.css" rel="stylesheet">
+<!-- default color palette -->
+<link href="../../css/palettes/default.css" rel="stylesheet">
+
+<!-- page layout -->
+<style>
+/* initially set page layout to a one column grid */
+.terminal-mkdocs-main-grid {
+    display: grid;
+    grid-column-gap: 1.4em;
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+}
+
+/*  
+*   when side navigation is not hidden, use a two column grid.  
+*   if the screen is too narrow, fall back to the initial one column grid layout.
+*   in this case the main content will be placed under the navigation panel. 
+*/
+@media only screen and (min-width: 70em) {
+    .terminal-mkdocs-main-grid {
+        grid-template-columns: 4fr 9fr;
+    }
+}</style>
+
+
+
+     
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+</head>
+
+<body class="terminal"><div class="container">
+    <div class="terminal-nav">
+        <header class="terminal-logo">
+            <div id="mkdocs-terminal-site-name" class="logo terminal-prompt"><a href="/" class="no-style">hudred-li</a></div>
+        </header>
+        
+        <nav class="terminal-menu">
+            
+            <ul vocab="https://schema.org/" typeof="BreadcrumbList">
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../.." class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Home</span>
+                    </a>
+                    <meta property="position" content="0">
+                </li>
+                
+                
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="../../category/" class="menu-item " property="item" typeof="WebPage">
+                        <span property="name">Index</span>
+                    </a>
+                    <meta property="position" content="1">
+                </li>
+                
+                    
+                    
+                    
+            </ul>
+            
+        </nav>
+    </div>
+</div>
+        
+    <div class="container">
+        <div class="terminal-mkdocs-main-grid"><aside id="terminal-mkdocs-side-panel"><nav>
+  
+    <ul class="terminal-mkdocs-side-nav-items">
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../..">Home</a>
+        
+    
+    
+    
+  </li>
+        
+          
+
+
+
+<li class="terminal-mkdocs-side-nav-li">
+    
+    
+    
+        
+        
+            <a class="
+
+    terminal-mkdocs-side-nav-item" href="../../category/">Index</a>
+        
+    
+    
+    
+  </li>
+        
+    </ul>
+  
+</nav><hr>
+<nav>
+    <ul>
+        <li><a href="#_1">基础环境搭建</a></li>
+        <li><a href="#-mkdocs">- mkdocs安装配置</a></li><li><a href="#-">- 主题插件安装</a></li><li><a href="#-_1">- 预览站点</a></li><li><a href="#-_2">- 新增导航</a></li><li><a href="#-_3">- 构建网站</a></li><li><a href="#typora">typora配置</a></li>
+        <li><a href="#-_4">- 本地图像插入修改</a></li>
+    </ul>
+</nav>
+</aside>
+            <main id="terminal-mkdocs-main-content">
+<section id="mkdocs-terminal-content">
+    <h2 id="_1">基础环境搭建</h2>
+<p>该博客系统采用的是<a href="https://www.mkdocs.org/">mkdocs</a>和<a href="https://github.com/ntno/mkdocs-terminal">mkdocs-terminal</a>主题插件共同构建而来。</p>
+<p><a href="https://www.mkdocs.org/getting-started/">mkdocs快速开始</a></p>
+<p><img alt="image-20240615225749735" src="../../imgs/image-20240615225749735.png" /></p>
+<h3 id="-mkdocs">- mkdocs安装配置</h3>
+<p><a href="https://www.mkdocs.org/">mkdocs</a>是一款使用<code>Python</code>编写的<strong>快速</strong>、<strong>简单</strong>的站点生成器。在安装<code>mkdocs</code> 之前，需要先构建<code>python</code> 环境，使用<code>pip</code> 进行安装。</p>
+<pre><code class="language-bash">pip3 install mkdocs
+</code></pre>
+<p>查看版本号</p>
+<pre><code class="language-bash">mkdocs --version
+</code></pre>
+<p>如有正常输出版本号，则表示安装成功。</p>
+<p>创建一个新的站点</p>
+<pre><code class="language-bash">mkdocs new myblogs
+</code></pre>
+<h3 id="-">- 主题插件安装</h3>
+<p>使用<code>pip</code> 安装<code>terminal</code> 主题</p>
+<pre><code class="language-bash">pip3 install mkdocs-terminal
+</code></pre>
+<p>修改站点配置文件<code>mkdocs.yml</code> </p>
+<p>修改<code>theme</code> 值，增加<code>plugins</code>值。</p>
+<pre><code class="language-yaml">theme: terminal
+plugins:
+  - md-to-html
+</code></pre>
+<h3 id="-_1">- 预览站点</h3>
+<p>首先，需要切入到<code>mkdocs.yaml</code> 所在目录，使用如下命令启动内置开发站点服务器。</p>
+<pre><code class="language-bash">mkdocs serve
+</code></pre>
+<p>使用浏览器打开<a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a>站点，便可预览站点。</p>
+<p><img alt="image-20240615232333501" src="../../imgs/image-20240615232333501.png" /></p>
+<h3 id="-_2">- 新增导航</h3>
+<p>新增导航，直接在<code>mkdocs.yaml</code>文件的<code>nav</code> 下创建新的导航名称，和指定的页面即可，例如：</p>
+<pre><code class="language-yaml">nav:
+  - Home: index.md
+  - Index: category.md
+  - About: about.md
+</code></pre>
+<p>而后只需要创建相应的md文档即可完成导航的创建。</p>
+<h3 id="-_3">- 构建网站</h3>
+<p>如果预览效果达到预期，想要发布的话，使用如下命令生产站点</p>
+<pre><code class="language-bash">mkdocs build
+</code></pre>
+<p>它会创建<code>site</code> 目录，是<code>build</code> 指令将<code>md</code> 文档转换为了<code>html</code> 文件，至此，我们就可以将<code>site</code> 目录发布即可。</p>
+<h2 id="typora">typora配置</h2>
+<p><a href="https://zahui.fan/posts/64b52e0d/">最后一个Typora免费版0.11.18</a></p>
+<h3 id="-_4">- 本地图像插入修改</h3>
+<p>这里使用的是<code>typora</code> 编辑器，使用【文件】【打开】打开站点的<code>docs</code> 目录，选择【文件】【偏好设置】</p>
+<p><img alt="image-20240615233454209" src="../../imgs/image-20240615233454209.png" /></p>
+<p>选择【图像】，插入图片选择【复制到指定目录】，目录选择 【docs目录下的imgs目录】，勾选【对本地位置的图片应用上述规则】和【优先使用相对路径】。</p>
+<p><img alt="image-20240615233208793" src="../../imgs/image-20240615233208793.png" /></p>
+</section>
+
+            </main>
+        </div>
+        <hr><footer>
+    <div class="terminal-mkdocs-footer-grid">
+        <div id="terminal-mkdocs-footer-copyright-info">
+             Site built with <a href="http://www.mkdocs.org">MkDocs</a> and <a href="https://github.com/ntno/mkdocs-terminal">Terminal for MkDocs</a>.
+        </div>
+    </div>
+</footer>
+    </div>
+
+    
+    
+    
+</body>
+
+</html>
